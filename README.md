@@ -4,7 +4,7 @@ This software is a reverse image search engine.
 
 Authors
 -------
-We are two engineers from **INSA Lyon**, France.
+We are two French engineers.
 
 Mathieu Gaillard - Guillaume Kheng
 

@@ -11,8 +11,8 @@ RUN apt update && \
 
 # Install OpenCV
 RUN mkdir /tmp/OpenCV && cd /tmp/OpenCV && \
-    wget -O opencv.zip https://github.com/opencv/opencv/archive/3.2.0.zip && \
-    unzip opencv.zip && cd opencv-3.2.0 && \
+    wget -O opencv.zip https://github.com/opencv/opencv/archive/3.3.1.zip && \
+    unzip opencv.zip && cd opencv-3.3.1 && \
     mkdir build && cd build && \
     cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local .. && \
     make -j8 && make install && ldconfig && \
@@ -20,12 +20,12 @@ RUN mkdir /tmp/OpenCV && cd /tmp/OpenCV && \
 
 # Install MongoCxx
 RUN mkdir /tmp/mongocxx && cd /tmp/mongocxx && \
-    wget https://github.com/mongodb/mongo-c-driver/releases/download/1.6.3/mongo-c-driver-1.6.3.tar.gz && \
-    tar xzf mongo-c-driver-1.6.3.tar.gz && cd mongo-c-driver-1.6.3 && \
+    wget https://github.com/mongodb/mongo-c-driver/releases/download/1.8.2/mongo-c-driver-1.8.2.tar.gz && \
+    tar xzf mongo-c-driver-1.8.2.tar.gz && cd mongo-c-driver-1.8.2 && \
     ./configure --disable-automatic-init-and-cleanup && \
     make -j8 && make install && cd .. && \
-    curl -OL https://github.com/mongodb/mongo-cxx-driver/archive/r3.1.1.tar.gz && \
-    tar -xzf r3.1.1.tar.gz && cd mongo-cxx-driver-r3.1.1/build && \
+    curl -OL https://github.com/mongodb/mongo-cxx-driver/archive/r3.1.3.tar.gz && \
+    tar -xzf r3.1.3.tar.gz && cd mongo-cxx-driver-r3.1.3/build && \
     cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
     make -j8 && make install && \
     cd ../../.. && rm -rf mongocxx

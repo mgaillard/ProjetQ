@@ -1,0 +1,43 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - ./data/db:/data/db
+
+  hamming-index:
+    build: ./hamming-index
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  seed:
+    build: ./seed
+    depends_on:
+      - mongodb
+      - hamming-index
+      - nginx
+    links:
+      - nginx
+
+  nginx:
+    build: ./nginx
+    depends_on:
+      - hamming-index
+    links:
+      - hamming-index
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 80:8080
+    depends_on:
+      - nginx
+      - mongodb
+    links:
+      - nginx
+      - mongodb

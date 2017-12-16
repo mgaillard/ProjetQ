@@ -1,0 +1,14 @@
+<div *ngIf="results">
+  <h2>Results</h2>
+  <div class="row" *ngFor="let result of results">
+    <div class="col-md-3 col-xs-6">
+      <a [attr.href]="result.url" class="thumbnail">
+      <img [attr.src]="result.url" [attr.alt]="result.url">
+    </a>
+    </div>
+    <div class="col-md-9 col-xs-6">
+      <h3>{{ result.url_domain }}</h3>
+      <p>{{ result.url_pathname }}</p>
+    </div>
+  </div>
+</div>

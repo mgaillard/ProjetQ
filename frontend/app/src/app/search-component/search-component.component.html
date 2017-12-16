@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <input [(ngModel)]="query" type="text" class="form-control" placeholder="Url of the query image...">
+      <span class="input-group-btn">
+        <button (click)="search()" class="btn btn-default" type="button">Search!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+</div>
+<app-search-result-list-component [results]="results"></app-search-result-list-component>

@@ -13,8 +13,6 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
 RUN npm install -g @angular/cli
 
 # Copy Application
-COPY entrypoint.sh /root/entrypoint.sh
-RUN chmod +x /root/entrypoint.sh
 COPY app /root/app
 
 # Install Application
